@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page__wrapper">
+        <div class="form__wrapper">
+            <div class="title__wrapper">
+                <h1>Калькулятор</h1>
+                <h2>Узнайте стоимость своего автомобиля!</h2>
+            </div>
+                <form class="form"> 
+                    <label for="car_type">Марка автомобиля
+                    <select name="car brand" id="car_type">
+                        <option value="Reanault" id="Reanault">Reanault</option>
+                        <option value="Opel" id="Opel">Opel</option>
+                        <option value="Ford" id="Ford">Ford</option>
+                    </select>
+                </label>
+                <div class="car__model"></div>
+                <label>Тип топлива
+                    <input type="radio" name="fuel type" value="petrol">бензин
+                    <input type="radio" name="fuel type" value="disel">дизель
+                    <input type="radio" name="fuel type" value="gas">газ
+                    <input type="radio" name="fuel type" value="electricity">электричество
+                </label>
+                <label>Состояние
+                    <input type="radio" name="condition" value="new">Новый 
+                    <input type="radio" name="condition" value="used" id="used">Поддержанный
+                </label>
+                <div class="used__car-options"></div>
+                <label>Способ оплаты
+                    <input type="radio" name="pay options" value="cash">Наличными
+                    <input type="radio" name="pay options" value="card">Картой
+                </label>
+                <label class="power__label">
+                    <p>Объем двигателя</p>
+                    <input class="power__input">
+                </label>
+                <button class="calc__button" id="calc__button">Рассчитать!</button>
+            </form>    
+        <p class="result"></p>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
