@@ -18,6 +18,7 @@
                 <form class="form"> 
                     <label for="car_type">Марка автомобиля
                     <select name="car brand" id="car_type">
+                        <option value="empty" hidden></option>
                         <option value="Reanault" id="Reanault">Reanault</option>
                         <option value="Opel" id="Opel">Opel</option>
                         <option value="Ford" id="Ford">Ford</option>
@@ -44,8 +45,11 @@
                     <input class="power__input">
                 </label>
                 <button class="calc__button" id="calc__button">Рассчитать!</button>
-            </form>    
-        <p class="result"></p>
+            </form>
+        <div class="price__wrapper">
+            <p class="total__price">0</p>
+            <p>рублей</p>
+        </div>   
     </div>
     </div>
     <script src="script.js"></script>

@@ -32,3 +32,10 @@ label {
     height: 25px;
     margin-left: 3%;
 }
+.power__input {
+    margin-top: 2%;
+}
+.price__wrapper {
+    display: flex;
+    flex-direction: row;
+}
