@@ -56,23 +56,35 @@ function usedCarForm () {
     if (usedCar.value === 'used') {
         usedCarOptions.innerHTML = `
         <label>
-            <input type="radio" name="owners"="1.1">1-2 владельца
-            <input type="radio" name="owners" value="1.3">3 и больше
+            <input type="radio" name="owners"="1.3">1-2 владельца
+            <input type="radio" name="owners" value="1.1">3 и больше
         </label>`;
     }
 }
 
-carType.addEventListener('change', (changeModelForm));
-usedCar.addEventListener('change', (usedCarForm));
+/* carType.addEventListener('change', (changeModelForm));
+usedCar.addEventListener('change', (usedCarForm)); */
+form.addEventListener('change', () => {
+    changeModelForm();
+    usedCarForm();
+    reanaultModels = document.getElementById('reanault_models');
+    radioUsed = document.querySelectorAll('input[name="owners"]');
+    console.log(reanaultModels);
 
-reanaultModels = document.getElementById('reanault_models');
+    function priceCalc () {
+        reanaultModels.value * parseFloat(radioUsed.value)
+    }
+    priceWrapper.innerText =  priceCalc();
+}
+)
+/* reanaultModels = document.getElementById('reanault_models');
 radioUsed = document.querySelectorAll('input[name="owners"]');
+console.log(reanaultModels);
 
 function priceCalc () {
     reanaultModels.value * parseFloat(radioUsed.value)
 }
-
-priceWrapper.innerText =  priceCalc;
+priceWrapper.innerText =  priceCalc(); */
 
 /* //обработчик событий для селектора
 carType.addEventListener('change', () => {
