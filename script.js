@@ -69,7 +69,6 @@ let fuelType = document.querySelectorAll('input[name="fuel type"]');
 let radioUsed = document.querySelectorAll('input[name="owners"]');
 let price = '';
 
-
 function priceCalc () {
     console.log(reanaultModels.value);
     console.log(parseFloat(radioUsed.value));
