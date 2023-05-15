@@ -17,7 +17,6 @@ const radioFuelType = document.querySelectorAll('input[name="fuel type"]');
 const radioCondition = document.querySelectorAll('input[name="condition"]');
 const usedCarOptions = document.querySelector('.used__car-options');
 const usedCar = document.getElementById('used');
-let radioUsed = '';
 
 function changeModelForm () {
     if (carType.value === reanault.value) {
@@ -26,8 +25,8 @@ function changeModelForm () {
         <select name="Car Model" id="reanault_models">
             <option value="2500">Duster</option>
             <option value="2000">Logan</option>
-            <option value="Kaptur">Kaptur</option>
-            <option value="Sandero">Sandero</option>
+            <option value="2200">Kaptur</option>
+            <option value="2100">Sandero</option>
         </select>
     </label>`;
     } else if (carType.value === opel.value) {
@@ -62,21 +61,35 @@ function usedCarForm () {
     }
 }
 
-/* carType.addEventListener('change', (changeModelForm));
-usedCar.addEventListener('change', (usedCarForm)); */
-form.addEventListener('change', () => {
-    changeModelForm();
-    usedCarForm();
-    reanaultModels = document.getElementById('reanault_models');
-    radioUsed = document.querySelectorAll('input[name="owners"]');
-    console.log(reanaultModels);
+carType.addEventListener('change', (changeModelForm));
+usedCar.addEventListener('change', (usedCarForm));
 
-    function priceCalc () {
-        reanaultModels.value * parseFloat(radioUsed.value)
+reanaultModels = document.getElementById('reanault_models');
+let fuelType = document.querySelectorAll('input[name="fuel type"]');
+let radioUsed = document.querySelectorAll('input[name="owners"]');
+let price = '';
+
+
+function priceCalc () {
+    console.log(reanaultModels.value);
+    console.log(parseFloat(radioUsed.value));
+    for (const fuel of fuelType) {
+        if (fuel.checked) {
+        price = Number(reanaultModels) * Number(fuel.value)
+        }
     }
-    priceWrapper.innerText =  priceCalc();
+    for (const used of radioUsed) {
+        if (used.checked) {
+            price = Number(reanaultModels.value) * Number(radioUsed.value)
+        }
+    }
+    return price 
 }
-)
+
+form.addEventListener('change', () => {
+    priceWrapper.innerHTML =  `<p>${priceCalc()}</p>;`
+})
+
 /* reanaultModels = document.getElementById('reanault_models');
 radioUsed = document.querySelectorAll('input[name="owners"]');
 console.log(reanaultModels);

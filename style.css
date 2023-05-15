@@ -37,5 +37,5 @@ label {
 }
 .price__wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
