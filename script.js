@@ -3,12 +3,10 @@ const carModel = document.querySelector('.car__model');
 const priceWrapper = document.querySelector('.price__wrapper');
 const form = document.querySelector('.form');
 const power = document.querySelector('.power__input');
-
 //модели автомобилей
 const reanault = document.getElementById('Reanault');
 const opel = document.getElementById('Opel');
 const ford = document.getElementById('Ford');
-
 //селектор
 const carType = document.getElementById('car_type');
 //модели
@@ -16,6 +14,7 @@ let carModelValue = '';
 let reanaultModels ='';
 let opelModels ='';
 let fordModels ='';
+let enginePower = '';
 //радиокнопки
 const radioFuelType = document.querySelectorAll('input[name="fuel type"]');
 const radioCondition = document.querySelectorAll('input[name="condition"]');
@@ -70,9 +69,21 @@ function usedCarForm () {
         </label>`;
     }
 }
+
+function textInput () {    
+    if (power.value >= 3.1) {
+        enginePower = 1;
+    } else if (power.value >= 2) {
+        enginePower = 0.98;
+    } else if (power.value <= 1.99) {
+        enginePower = 0.96;
+    } 
+
+}
 //обработчики для изменения формы
 carType.addEventListener('change', (changeModelForm));
 usedCar.addEventListener('change', (usedCarForm));
+power.addEventListener('change', (textInput));
 
 //функция подсчета цены
 function priceCalc () {
@@ -88,16 +99,9 @@ function priceCalc () {
         if (used.checked) {
             price = price * +used.value;
         }
-    }
-
-    if (power.value >= 3.1) {
-        price = price * 1;
-    } else if (power.value >= 2) {
-        price = price * 0.98;
-    } else if (power.value <= 1.99) {
-        price = price * 0.96;
-    }  
-    return price 
+    }    
+    price = price * +enginePower;
+    return price
 }
 //обработчик на изменения формы и вывод цены на экран
 form.addEventListener('change', () => {
