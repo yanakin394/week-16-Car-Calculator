@@ -2,6 +2,7 @@
 const carModel = document.querySelector('.car__model');
 const priceWrapper = document.querySelector('.price__wrapper');
 const form = document.querySelector('.form');
+const power = document.querySelector('.power__input');
 
 //модели автомобилей
 const reanault = document.getElementById('Reanault');
@@ -72,7 +73,7 @@ function usedCarForm () {
 //обработчики для изменения формы
 carType.addEventListener('change', (changeModelForm));
 usedCar.addEventListener('change', (usedCarForm));
-
+//функция подсчета цены
 function priceCalc () {
     let fuelType = document.querySelectorAll('input[name="fuel type"]');
     let radioUsed = document.querySelectorAll('input[name="owners"]');
@@ -86,11 +87,17 @@ function priceCalc () {
         if (used.checked) {
             price = price * +used.value;
         }
-
+    }
+    if (power.value >= 3.1) {
+        price = price * 1;
+    } else if (power.value >= 2) {
+        price = price * 0.98;
+    } else if (power.value <= 1.99) {
+        price = price * 0.96;
     }
     return price 
 }
-
+//обработчик на изменения формы и вывод цены на экран
 form.addEventListener('change', () => {
-    priceWrapper.innerHTML =  `<p>${Number(priceCalc())}</p><p> рублей</p>`
+    priceWrapper.innerHTML =  `<p>${Math.round(+priceCalc())}</p><p> рублей</p>`
 })
