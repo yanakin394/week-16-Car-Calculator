@@ -27,10 +27,10 @@ function changeModelForm () {
         carModel.innerHTML = `
         <label for="car_model">Модель автомобиля
         <select name="Car Model" id="reanault_models">
-            <option value="2500">Duster</option>
-            <option value="2000">Logan</option>
-            <option value="2200">Kaptur</option>
-            <option value="2100">Sandero</option>
+            <option value="2500000">Duster</option>
+            <option value="2000000">Logan</option>
+            <option value="2200000">Kaptur</option>
+            <option value="2100000">Sandero</option>
         </select>
     </label>`;
     reanaultModels = document.getElementById('reanault_models');
@@ -39,10 +39,10 @@ function changeModelForm () {
         carModel.innerHTML = `
         <label for="car_model">Модель автомобиля
         <select name="Car Model" id="opel_models">
-            <option value="3500">Insignia</option>
-            <option value="3300">Mokka</option>
-            <option value="3450">Astra</option>
-            <option value="4000">Astra Family</option>
+            <option value="3500000">Insignia</option>
+            <option value="3300000">Mokka</option>
+            <option value="34500000">Astra</option>
+            <option value="4000000">Astra Family</option>
         </select>
     </label>`;
     opelModels = document.getElementById('opel_models');
@@ -51,10 +51,10 @@ function changeModelForm () {
         carModel.innerHTML = `
         <label for="car_model">Модель автомобиля
         <select name="Car Model" id="ford_models">
-            <option value="3500">LTD</option>
-            <option value="3700">Taurus</option>
-            <option value="3650">Focus</option>
-            <option value="3400">Fiesta</option>
+            <option value="3500000">LTD</option>
+            <option value="3700000">Taurus</option>
+            <option value="3650000">Focus</option>
+            <option value="3400000">Fiesta</option>
         </select>
     </label>`;
     fordModels = document.getElementById('ford_models');
@@ -73,6 +73,7 @@ function usedCarForm () {
 //обработчики для изменения формы
 carType.addEventListener('change', (changeModelForm));
 usedCar.addEventListener('change', (usedCarForm));
+
 //функция подсчета цены
 function priceCalc () {
     let fuelType = document.querySelectorAll('input[name="fuel type"]');
@@ -88,13 +89,14 @@ function priceCalc () {
             price = price * +used.value;
         }
     }
+
     if (power.value >= 3.1) {
         price = price * 1;
     } else if (power.value >= 2) {
         price = price * 0.98;
     } else if (power.value <= 1.99) {
         price = price * 0.96;
-    }
+    }  
     return price 
 }
 //обработчик на изменения формы и вывод цены на экран
